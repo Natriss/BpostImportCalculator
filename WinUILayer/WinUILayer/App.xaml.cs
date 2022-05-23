@@ -15,6 +15,10 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using WinUILayer.Navigation;
+using WinUILayer.Views;
+using System.Runtime.InteropServices;
+using WinRT;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -42,10 +46,51 @@ namespace WinUILayer
 		/// <param name="args">Details about the launch request and process.</param>
 		protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
 		{
-			m_window = new MainWindow();
+			m_window = new Window();
+
+			Frame frame = GetRootFrame();
+			Type targetPageType = typeof(BpostImportCalculatorPage);
+			string targetPageArguments = string.Empty;
+
+			RootNavigationPage rootPage = StartupWindow.Content as RootNavigationPage;
+			rootPage.Navigate(targetPageType, targetPageArguments);
+
+			((NavigationViewItem)((RootNavigationPage)StartupWindow.Content).NavigationView.MenuItems[0]).IsSelected = true;
+
 			m_window.Activate();
 		}
 
-		private Window m_window;
+		private Frame GetRootFrame()
+		{
+			Frame rootFrame;
+			RootNavigationPage rootPage = StartupWindow.Content as RootNavigationPage;
+			if (rootPage == null)
+			{
+				rootPage = new RootNavigationPage();
+				rootFrame = (Frame)rootPage.FindName("rootFrame");
+				if (rootFrame == null)
+				{
+					throw new Exception("Root frame not found");
+				}
+
+				StartupWindow.Content = rootPage;
+			}
+			else
+			{
+				rootFrame = (Frame)rootPage.FindName("rootFrame");
+			}
+
+			return rootFrame;
+		}
+
+		private static Window m_window;
+
+		public static Window StartupWindow
+		{
+			get
+			{
+				return m_window;
+			}
+		}
 	}
 }
