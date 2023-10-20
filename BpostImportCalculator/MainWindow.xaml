@@ -13,8 +13,11 @@
             <RowDefinition Height="48"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid x:Name="AppTitleBar">
+        <Grid x:Name="AppTitleBar" Grid.Row="0">
             <TextBlock Text="{x:Bind ViewModel.AppTitle}" Padding="8"/>
         </Grid>
+        <Border Grid.Row="1" Margin="4" CornerRadius="8" BorderBrush="{ThemeResource CardStrokeColorDefault}" BorderThickness="1">
+            <Frame x:Name="View"/>
+        </Border>
     </Grid>
 </Window>

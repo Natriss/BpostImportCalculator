@@ -1,4 +1,5 @@
 using BpostImportCalculator.ViewModels;
+using BpostImportCalculator.Views;
 using Microsoft.UI.Xaml;
 
 // To learn more about WinUI, the WinUI project structure,
@@ -17,7 +18,8 @@ namespace BpostImportCalculator
 		{
 			InitializeComponent();
 			SetTitleBar(AppTitleBar);
-			rootControl.DataContext = ViewModel;
+			rootControl.DataContext = new MainViewModel();
+			View.Navigate(typeof(BpostImportCalculatorPage));
 		}
 	}
 }

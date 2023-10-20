@@ -2,9 +2,9 @@
 
 namespace BpostImportCalculator.ViewModels
 {
-	public class MainViewModel
+	public class MainViewModel : BaseViewModel
 	{
-		private string _appTitle = "AppTitle".GetLocalized();
+		private readonly string _appTitle = "AppTitle".GetLocalized();
 
 		public string AppTitle
 		{
