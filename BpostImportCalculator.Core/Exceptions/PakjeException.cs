@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace DomainLayer.Exceptions
+namespace BpostImportCalculator.Core.Exceptions
 {
 	[Serializable]
 	public class PakjeException : Exception

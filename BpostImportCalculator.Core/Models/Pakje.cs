@@ -1,11 +1,6 @@
-﻿using DomainLayer.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BpostImportCalculator.Core.Exceptions;
 
-namespace DomainLayer.Classes
+namespace BpostImportCalculator.Core.Models
 {
 	public class Pakje
 	{

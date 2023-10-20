@@ -1,8 +1,9 @@
-﻿<Application
-    x:Class="WinUILayer.App"
+<?xml version="1.0" encoding="utf-8"?>
+<Application
+    x:Class="BpostImportCalculator.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:WinUILayer">
+    xmlns:local="using:BpostImportCalculator">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

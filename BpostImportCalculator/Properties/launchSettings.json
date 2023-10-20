@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "BpostImportCalculator (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "BpostImportCalculator (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
