@@ -1,4 +1,5 @@
 ﻿using BpostImportCalculator.Core.Models;
+using BpostImportCalculator.Services;
 using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Threading.Tasks;
@@ -8,12 +9,9 @@ namespace BpostImportCalculator.ViewModels
 	public class BpostImportCalculatorViewModel : BaseViewModel
 	{
 		private Package _package { get; set; }
+		private DialogService _dialogService;
 
-		private readonly string[] _typeItemSource = { "Commercial", "Gift" };
-		public string[] TypeItemSource
-		{
-			get { return _typeItemSource; }
-		}
+		public string[] TypeItemSource { get; } = { "Commercial", "Gift" };
 
 		private string _selectedItem = "Commercial";
 		public string SelectedItem
@@ -39,7 +37,7 @@ namespace BpostImportCalculator.ViewModels
 				}
 				catch (Exception e)
 				{
-					_ = ShowErrorAsync(e.Message);
+					_ = _dialogService.ShowErrorAsync(e.Message);
 				}
 				finally
 				{
@@ -48,19 +46,9 @@ namespace BpostImportCalculator.ViewModels
 			}
 		}
 
-		private static async Task ShowErrorAsync(string message)
-		{
-			ContentDialog contentDialog = new()
-			{
-				Title = "Error",
-				Content = message,
-				CloseButtonText = "Okay",
-			};
-			_ = await contentDialog.ShowAsync();
-		}
-
 		public BpostImportCalculatorViewModel()
 		{
+			_dialogService = new DialogService();
 			_package = new()
 			{
 				Price = 0,
