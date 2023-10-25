@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource CardBackgroundFillColorDefault}">
 
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -23,20 +23,23 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <ComboBox Name="SoortZendinng" Header="Soort zending" Grid.ColumnSpan="2" SelectionChanged="SoortZendinng_SelectionChanged">
-                <ComboBoxItem Content="Commercieel" IsSelected="True"/>
-                <ComboBoxItem Content="Geschenk"/>
-            </ComboBox>
-            <TextBlock Text="Pakje" Grid.Row="1" VerticalAlignment="Center" Margin="0,10"/>
-            <NumberBox Name="Pakje" Grid.Row="1" Grid.Column="1" Margin="5,10" Value="0" SpinButtonPlacementMode="Compact" SmallChange="1" ValueChanged="Pakje_ValueChanged"/>
-            <TextBlock Text="Verzendkosten" Grid.Row="2" VerticalAlignment="Center" Margin="0,10"/>
-            <NumberBox Name="Verzendkosten" Grid.Row="2" Grid.Column="1" Margin="5,10" Value="0" SpinButtonPlacementMode="Compact" SmallChange="1" ValueChanged="Verzendkosten_ValueChanged"/>
-            <TextBlock Text="Douaneformaliteiten" Grid.Row="3" Margin="0,10"/>
-            <TextBlock Name="Douaneformaliteiten" Grid.Row="3" Grid.Column="1" Margin="5,10" Text="00,00"/>
-            <TextBlock Text="BTW" Grid.Row="4" Margin="0,10"/>
-            <TextBlock Name="BTW" Grid.Row="4" Grid.Column="1" Margin="5,10" Text="00,00"/>
-            <TextBlock Text="Totaal" Grid.Row="5" Margin="0,10"/>
-            <TextBlock Name="Totaal" Grid.Row="5" Grid.Column="1" Margin="5,10" Text="00,00"/>
+
+            <ComboBox Grid.Row="0" Grid.ColumnSpan="2" ItemsSource="{x:Bind ViewModel.TypeItemSource}" SelectedItem="{x:Bind ViewModel.SelectedItem, Mode=TwoWay}" Header="Type of sending"/>
+
+            <TextBlock Grid.Row="1" Text="Package" VerticalAlignment="Center"/>
+            <NumberBox Grid.Row="1" Grid.Column="1" Value="{x:Bind ViewModel.Price, Mode=TwoWay}" SpinButtonPlacementMode="Compact" SmallChange="1" Minimum="0"/>
+            
+            <TextBlock Text="Shipping" Grid.Row="2" VerticalAlignment="Center"/>
+            <NumberBox Grid.Row="2" Grid.Column="1" Value="{x:Bind ViewModel.Shipping, Mode=TwoWay}" SpinButtonPlacementMode="Compact" SmallChange="1" Minimum="0"/>
+            
+            <TextBlock Text="Customs fee" Grid.Row="3"/>
+            <TextBlock Grid.Row="3" Grid.Column="1" Text="{x:Bind ViewModel.CustomsFee, Mode=OneWay}"/>
+            
+            <TextBlock Text="V.A.T." Grid.Row="4"/>
+            <TextBlock Grid.Row="4" Grid.Column="1" Text="{x:Bind ViewModel.VAT, Mode=OneWay}"/>
+            
+            <TextBlock Text="Total" Grid.Row="5"/>
+            <TextBlock Grid.Row="5" Grid.Column="1" Text="{x:Bind ViewModel.Total, Mode=OneWay}"/>
         </Grid>
     </StackPanel>
 </Page>

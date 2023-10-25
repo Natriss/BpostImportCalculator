@@ -11,6 +11,7 @@ namespace BpostImportCalculator
 	/// </summary>
 	public partial class App : Application
 	{
+		public static FrameworkElement MainRoot { get; private set; }
 		/// <summary>
 		/// Initializes the singleton application object.  This is the first line of authored code
 		/// executed, and as such is the logical equivalent of main() or WinMain().
@@ -24,16 +25,17 @@ namespace BpostImportCalculator
 		/// Invoked when the application is launched.
 		/// </summary>
 		/// <param name="args">Details about the launch request and process.</param>
-		protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
+		protected override void OnLaunched(LaunchActivatedEventArgs args)
 		{
-			m_window = new MainWindow()
+			_window = new MainWindow()
 			{
 				ExtendsContentIntoTitleBar = true,
 				SystemBackdrop = new MicaBackdrop(),
 			};
-			m_window.Activate();
+			MainRoot = _window.Content as FrameworkElement;
+			_window.Activate();
 		}
 
-		private Window m_window;
+		private Window _window;
 	}
 }
