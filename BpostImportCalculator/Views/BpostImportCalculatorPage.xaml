@@ -18,6 +18,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -27,10 +28,10 @@
             <ComboBox Grid.Row="0" Grid.ColumnSpan="2" ItemsSource="{x:Bind ViewModel.TypeItemSource}" SelectedItem="{x:Bind ViewModel.SelectedItem}" Header="Type of sending"/>
 
             <TextBlock Grid.Row="1" Text="Package" VerticalAlignment="Center"/>
-            <NumberBox Grid.Row="1" Grid.Column="1" Value="{x:Bind ViewModel.Price, Mode=TwoWay}" SpinButtonPlacementMode="Compact" SmallChange="1"/>
+            <NumberBox Grid.Row="1" Grid.Column="1" Value="{x:Bind ViewModel.Price, Mode=TwoWay}" SpinButtonPlacementMode="Compact" SmallChange="1" Minimum="0"/>
             
             <TextBlock Text="Shipping" Grid.Row="2" VerticalAlignment="Center"/>
-            <NumberBox Grid.Row="2" Grid.Column="1" Value="{x:Bind ViewModel.Shipping, Mode=TwoWay}" SpinButtonPlacementMode="Compact" SmallChange="1"/>
+            <NumberBox Grid.Row="2" Grid.Column="1" Value="{x:Bind ViewModel.Shipping, Mode=TwoWay}" SpinButtonPlacementMode="Compact" SmallChange="1" Minimum="0"/>
             
             <TextBlock Text="Customs fee" Grid.Row="3"/>
             <TextBlock Grid.Row="3" Grid.Column="1" Text="00,00"/>

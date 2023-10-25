@@ -1,15 +1,14 @@
 ﻿using BpostImportCalculator.Core.Models;
 using BpostImportCalculator.Services;
-using Microsoft.UI.Xaml.Controls;
+using CommunityToolkit.Mvvm.Input;
 using System;
-using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace BpostImportCalculator.ViewModels
 {
 	public class BpostImportCalculatorViewModel : BaseViewModel
 	{
 		private Package _package { get; set; }
-		private DialogService _dialogService;
 
 		public string[] TypeItemSource { get; } = { "Commercial", "Gift" };
 
@@ -33,27 +32,28 @@ namespace BpostImportCalculator.ViewModels
 			{
 				try
 				{
-					_package.Shipping = value;
+					_package.Shipping = value; 
 				}
 				catch (Exception e)
 				{
-					_ = _dialogService.ShowErrorAsync(e.Message);
+					ShowErrorMessage(e);
 				}
-				finally
-				{
-					OnPropertyChanged(nameof(Shipping));
-				}
+				OnPropertyChanged(nameof(Shipping));
 			}
 		}
 
 		public BpostImportCalculatorViewModel()
 		{
-			_dialogService = new DialogService();
 			_package = new()
 			{
 				Price = 0,
 				Shipping = 0
 			};
+		}
+
+		private static async void ShowErrorMessage(Exception e)
+		{
+			await App.MainRoot.ShowMessageDialogAsync("Error", e.Message, "Okay");
 		}
 	}
 }

@@ -1,23 +1,22 @@
-﻿using BpostImportCalculator.Interfaces;
+﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Threading.Tasks;
 
 namespace BpostImportCalculator.Services
 {
-	public class DialogService : IDialogService
+	public static class DialogService
 	{
-		public async Task<ContentDialogResult> ShowErrorAsync(string message)
+		public static async Task ShowMessageDialogAsync(this FrameworkElement frameworkElement, string title, string message, string closeButtonText)
 		{
-			ContentDialog contentDialog = new()
+			ContentDialog dialog = new()
 			{
-				Title = "Error",
+				Title = title,
 				Content = message,
-				CloseButtonText = "Okay",
+				CloseButtonText = closeButtonText,
+				XamlRoot = frameworkElement.XamlRoot
 			};
-
-			ContentDialogResult result = await contentDialog.ShowAsync();
-			return result;
+			await dialog.ShowAsync();
 		}
 	}
 }
