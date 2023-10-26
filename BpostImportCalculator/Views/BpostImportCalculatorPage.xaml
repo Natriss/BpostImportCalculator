@@ -9,37 +9,35 @@
     mc:Ignorable="d"
     Background="{ThemeResource CardBackgroundFillColorDefault}">
 
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+    <Grid MaxWidth="600" Padding="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
-            <ComboBox Grid.Row="0" Grid.ColumnSpan="2" ItemsSource="{x:Bind ViewModel.TypeItemSource}" SelectedItem="{x:Bind ViewModel.SelectedItem, Mode=TwoWay}" Header="{x:Bind ViewModel.TypeHeader}"/>
+        <ComboBox Grid.Row="0" Grid.ColumnSpan="2" ItemsSource="{x:Bind ViewModel.TypeItemSource}" SelectedItem="{x:Bind ViewModel.SelectedItem, Mode=TwoWay}" Header="{x:Bind ViewModel.TypeHeader}" Margin="4"/>
+        
+        <TextBlock Grid.Row="1" Text="{x:Bind ViewModel.PriceText}" VerticalAlignment="Center" Margin="4"/>
+        <NumberBox Grid.Row="1" Grid.Column="1" Value="{x:Bind ViewModel.Price, Mode=TwoWay}" SpinButtonPlacementMode="Compact" SmallChange="1" Minimum="0" Margin="4"/>
 
-            <TextBlock Grid.Row="1" Text="{x:Bind ViewModel.PriceText}" VerticalAlignment="Center"/>
-            <NumberBox Grid.Row="1" Grid.Column="1" Value="{x:Bind ViewModel.Price, Mode=TwoWay}" SpinButtonPlacementMode="Compact" SmallChange="1" Minimum="0"/>
+        <TextBlock Text="{x:Bind ViewModel.ShippingText}" Grid.Row="2" VerticalAlignment="Center" Margin="4"/>
+        <NumberBox Grid.Row="2" Grid.Column="1" Value="{x:Bind ViewModel.Shipping, Mode=TwoWay}" SpinButtonPlacementMode="Compact" SmallChange="1" Minimum="0" Margin="4"/>
 
-            <TextBlock Text="{x:Bind ViewModel.ShippingText}" Grid.Row="2" VerticalAlignment="Center"/>
-            <NumberBox Grid.Row="2" Grid.Column="1" Value="{x:Bind ViewModel.Shipping, Mode=TwoWay}" SpinButtonPlacementMode="Compact" SmallChange="1" Minimum="0"/>
+        <TextBlock Text="{x:Bind ViewModel.CustomsFeeText}" Grid.Row="3" Margin="4"/>
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="{x:Bind ViewModel.CustomsFee, Mode=OneWay}" Margin="4"/>
 
-            <TextBlock Text="{x:Bind ViewModel.CustomsFeeText}" Grid.Row="3"/>
-            <TextBlock Grid.Row="3" Grid.Column="1" Text="{x:Bind ViewModel.CustomsFee, Mode=OneWay}"/>
+        <TextBlock Text="{x:Bind ViewModel.VATText}" Grid.Row="4" Margin="4"/>
+        <TextBlock Grid.Row="4" Grid.Column="1" Text="{x:Bind ViewModel.VAT, Mode=OneWay}" Margin="4"/>
 
-            <TextBlock Text="{x:Bind ViewModel.VATText}" Grid.Row="4"/>
-            <TextBlock Grid.Row="4" Grid.Column="1" Text="{x:Bind ViewModel.VAT, Mode=OneWay}"/>
-
-            <TextBlock Text="{x:Bind ViewModel.TotalText}" Grid.Row="5"/>
-            <TextBlock Grid.Row="5" Grid.Column="1" Text="{x:Bind ViewModel.Total, Mode=OneWay}"/>
-        </Grid>
-    </StackPanel>
+        <TextBlock Text="{x:Bind ViewModel.TotalText}" Grid.Row="5" Margin="4"/>
+        <TextBlock Grid.Row="5" Grid.Column="1" Text="{x:Bind ViewModel.Total, Mode=OneWay}" Margin="4"/>
+    </Grid>
 </Page>

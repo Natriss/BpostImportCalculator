@@ -31,6 +31,8 @@ namespace BpostImportCalculator
 			{
 				ExtendsContentIntoTitleBar = true,
 				SystemBackdrop = new MicaBackdrop(),
+				MinHeight = 400,
+				MinWidth = 500
 			};
 			MainRoot = _window.Content as FrameworkElement;
 			_window.Activate();
