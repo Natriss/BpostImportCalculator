@@ -118,30 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppTitle" xml:space="preserve">
-    <value>Bpost Import Calculator</value>
+    <value>Bpost Import Rekenmachine</value>
   </data>
   <data name="Commercial" xml:space="preserve">
-    <value>Commercial</value>
+    <value>Commercieel</value>
   </data>
   <data name="CustomsFee" xml:space="preserve">
-    <value>Customs fee</value>
+    <value>Douaneformaliteiten</value>
   </data>
   <data name="Gift" xml:space="preserve">
-    <value>Gift</value>
+    <value>Kado</value>
   </data>
   <data name="Price" xml:space="preserve">
-    <value>Price</value>
+    <value>Prijs</value>
   </data>
   <data name="Shipping" xml:space="preserve">
-    <value>Shipping</value>
+    <value>Verzending</value>
   </data>
   <data name="Total" xml:space="preserve">
-    <value>Total</value>
+    <value>Totaal</value>
   </data>
   <data name="TypeHeader" xml:space="preserve">
-    <value>Type of sending</value>
+    <value>Type van verzending</value>
   </data>
   <data name="VAT" xml:space="preserve">
-    <value>V.A.T.</value>
+    <value>B.T.W.</value>
   </data>
 </root>

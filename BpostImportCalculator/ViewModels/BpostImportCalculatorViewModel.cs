@@ -1,4 +1,5 @@
 ﻿using BpostImportCalculator.Core.Models;
+using BpostImportCalculator.Helpers;
 
 namespace BpostImportCalculator.ViewModels
 {
@@ -6,9 +7,10 @@ namespace BpostImportCalculator.ViewModels
 	{
 		private Package Package { get; set; }
 
-		public string[] TypeItemSource { get; } = { "Commercial", "Gift" };
+		public string TypeHeader { get; } = "TypeHeader".GetLocalized();
+		public string[] TypeItemSource { get; } = { "Commercial".GetLocalized(), "Gift".GetLocalized() };
 
-		private string _selectedItem = "Commercial";
+		private string _selectedItem = "Commercial".GetLocalized();
 		public string SelectedItem
 		{
 			get { return _selectedItem; }
@@ -24,36 +26,38 @@ namespace BpostImportCalculator.ViewModels
 			}
 		}
 
+		public string PriceText { get; } = "Price".GetLocalized();
 		public double Price
 		{
 			get { return Package.Price; }
 			set { Package.Price = value; OnPropertyChanged(nameof(Price)); CalculateTotal(); }
 		}
 
+		public string ShippingText { get; } = "Shipping".GetLocalized();
 		public double Shipping
 		{
 			get { return Package.Shipping; }
 			set { Package.Shipping = value; OnPropertyChanged(nameof(Shipping)); CalculateTotal(); }
 		}
 
+		public string CustomsFeeText { get; } = "CustomsFee".GetLocalized();
 		private string _customsFee = "00,00";
-
 		public string CustomsFee
 		{
 			get { return _customsFee; }
 			set { _customsFee = value; OnPropertyChanged(nameof(CustomsFee)); }
 		}
 
+		public string VATText { get; } = "VAT".GetLocalized();
 		private string _vat = "00,00";
-
 		public string VAT
 		{
 			get { return _vat; }
 			set { _vat = value; OnPropertyChanged(nameof(VAT)); }
 		}
 
+		public string TotalText { get; } = "Total".GetLocalized();
 		private string _total = "00,00";
-
 		public string Total
 		{
 			get { return _total; }

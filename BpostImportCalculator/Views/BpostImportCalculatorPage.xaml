@@ -24,21 +24,21 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <ComboBox Grid.Row="0" Grid.ColumnSpan="2" ItemsSource="{x:Bind ViewModel.TypeItemSource}" SelectedItem="{x:Bind ViewModel.SelectedItem, Mode=TwoWay}" Header="Type of sending"/>
+            <ComboBox Grid.Row="0" Grid.ColumnSpan="2" ItemsSource="{x:Bind ViewModel.TypeItemSource}" SelectedItem="{x:Bind ViewModel.SelectedItem, Mode=TwoWay}" Header="{x:Bind ViewModel.TypeHeader}"/>
 
-            <TextBlock Grid.Row="1" Text="Package" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="1" Text="{x:Bind ViewModel.PriceText}" VerticalAlignment="Center"/>
             <NumberBox Grid.Row="1" Grid.Column="1" Value="{x:Bind ViewModel.Price, Mode=TwoWay}" SpinButtonPlacementMode="Compact" SmallChange="1" Minimum="0"/>
-            
-            <TextBlock Text="Shipping" Grid.Row="2" VerticalAlignment="Center"/>
+
+            <TextBlock Text="{x:Bind ViewModel.ShippingText}" Grid.Row="2" VerticalAlignment="Center"/>
             <NumberBox Grid.Row="2" Grid.Column="1" Value="{x:Bind ViewModel.Shipping, Mode=TwoWay}" SpinButtonPlacementMode="Compact" SmallChange="1" Minimum="0"/>
-            
-            <TextBlock Text="Customs fee" Grid.Row="3"/>
+
+            <TextBlock Text="{x:Bind ViewModel.CustomsFeeText}" Grid.Row="3"/>
             <TextBlock Grid.Row="3" Grid.Column="1" Text="{x:Bind ViewModel.CustomsFee, Mode=OneWay}"/>
-            
-            <TextBlock Text="V.A.T." Grid.Row="4"/>
+
+            <TextBlock Text="{x:Bind ViewModel.VATText}" Grid.Row="4"/>
             <TextBlock Grid.Row="4" Grid.Column="1" Text="{x:Bind ViewModel.VAT, Mode=OneWay}"/>
-            
-            <TextBlock Text="Total" Grid.Row="5"/>
+
+            <TextBlock Text="{x:Bind ViewModel.TotalText}" Grid.Row="5"/>
             <TextBlock Grid.Row="5" Grid.Column="1" Text="{x:Bind ViewModel.Total, Mode=OneWay}"/>
         </Grid>
     </StackPanel>
