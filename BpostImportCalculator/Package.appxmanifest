@@ -34,7 +34,7 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="BpostImportCalculator"
+        DisplayName="ms-resource:AppTitle"
         Description="BpostImportCalculator"
         BackgroundColor="transparent"
         Square150x150Logo="Assets\Square150x150Logo.png"

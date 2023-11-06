@@ -11,12 +11,15 @@
 
     <Grid x:Name="rootControl" >
         <Grid.RowDefinitions>
-            <RowDefinition Height="48"/>
+            <RowDefinition Height="32"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid x:Name="AppTitleBar" Grid.Row="0">
-            <TextBlock Text="{x:Bind ViewModel.AppTitle}" Padding="8"/>
-        </Grid>
+        <Border x:Name="AppTitleBar" Grid.Row="0">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Assets/StoreLogo.png" Height="16" Width="16" Margin="16,8"/>
+                <TextBlock Text="{x:Bind ViewModel.AppTitle}" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Border>
         <Border Grid.Row="1" Margin="4" CornerRadius="8" BorderBrush="{ThemeResource CardStrokeColorDefault}" BorderThickness="1">
             <Frame x:Name="View"/>
         </Border>
